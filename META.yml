@@ -35,4 +35,4 @@ requires:
   XML::LibXML: 1.7
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.01_04
+version: 0.01_05
