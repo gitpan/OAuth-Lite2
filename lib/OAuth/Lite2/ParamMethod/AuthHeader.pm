@@ -11,6 +11,7 @@ use URI;
 use bytes ();
 use Params::Validate;
 use Hash::MultiValue;
+use MIME::Base64 qw(decode_base64);
 
 =head1 NAME
 
@@ -51,7 +52,7 @@ Returns true if passed L<Plack::Request> object is matched for the type of this 
 sub match {
     my ($self, $req) = @_;
     my $header = $req->header("Authorization");
-    return ($header && $header =~ /^\s*(OAuth|Bearer)\s+(.+)$/);
+    return ($header && $header =~ /^\s*(OAuth|Bearer)(.*)$/);
 }
 
 =head2 parse( $plack_request )
@@ -65,9 +66,11 @@ Parse the L<Plack::Request>, and returns access token and oauth parameters.
 sub parse {
     my ($self, $req) = @_;
     my $header = $req->header("Authorization");
-    $header =~ s/^\s*(OAuth|Bearer)\s+([^\s\,]+)//;
+    $header =~ s/^\s*(OAuth|Bearer)\s+([^\s\,]*)//;
     my $token = $2;
     my $params = Hash::MultiValue->new;
+    $header =~ s/^\s*(OAuth|Bearer)\s*([^\s\,]*)//;
+
     if ($header) {
         $header =~ s/^\s*\,\s*//;
         for my $attr (split /,\s*/, $header) {
@@ -162,8 +165,47 @@ Returns true if passed L<Plack::Request> object is based draft version 10.
 sub is_legacy {
     my ($self, $req) = @_;
     my $header = $req->header("Authorization");
-    return ($header && $header =~ /^\s*OAuth\s+(.+)$/);
+    return ($header && $header =~ /^\s*OAuth(.*)$/);
 }
+
+=head2 basic_clientcredentials( $plack_request )
+
+Returns Hash reference if passed L<Plack::Request> object has client credentials in Authorization header.
+
+    my $basic_clientcredentials = $meth->basic_credentials( $plack_request );
+    if( defined($basic_clientcredentials) ){
+        my $client_id =     $basic_clientcredentials->{client_id};
+        my $client_secret = $basic_clientcredentials->{client_secret};
+    }
+
+=cut
+
+sub basic_credentials{
+    my ($self, $req) = @_;
+
+    my %credentials = (
+        client_id       => '',
+        client_secret   => ''
+    );
+    my $header = $req->header("Authorization");
+    return \%credentials unless (defined($header));
+
+    $header =~ /^\s*(Basic)(.*)$/;
+    my $decoded;
+    if($header){
+        $decoded = decode_base64($2);
+        return \%credentials unless (index($decoded,':') > 0);
+
+        my @split_credentials = split(/:/, $decoded);
+        return \%credentials unless (scalar(@split_credentials) == 2);
+
+        %credentials = (
+            client_id       => $split_credentials[0],
+            client_secret   => $split_credentials[1]
+        );
+    }
+    return \%credentials;
+};
 
 =head1 SEE ALSO
 
