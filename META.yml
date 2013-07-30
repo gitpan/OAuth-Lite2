@@ -28,7 +28,7 @@ no_index:
 provides:
   OAuth::Lite2:
     file: lib/OAuth/Lite2.pm
-    version: 0.04
+    version: 0.05
   OAuth::Lite2::Agent:
     file: lib/OAuth/Lite2/Agent.pm
     version: 0
@@ -217,7 +217,7 @@ resources:
   bugtracker: https://github.com/ritou/p5-oauth-lite2/issues
   homepage: https://github.com/ritou/p5-oauth-lite2
   repository: https://github.com/ritou/p5-oauth-lite2.git
-version: 0.04
+version: 0.05
 x_contributors:
   - 'Kato Kazuyoshi <kato.kazuyoshi@gmail.com>'
   - 'HIROSE Masaaki <hirose31@gmail.com>'
