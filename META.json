@@ -4,13 +4,15 @@
       "Ryo Ito, <ritou.06@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v0.5.6",
-   "license" : "perl_5",
+   "generated_by" : "Minilla/v0.8.0",
+   "license" : [
+      "perl_5"
+   ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
    },
-   "name" : "oauth-lite2",
+   "name" : "OAuth-Lite2",
    "no_index" : {
       "directory" : [
          "t",
@@ -19,7 +21,8 @@
          "share",
          "eg",
          "examples",
-         "author"
+         "author",
+         "builder"
       ]
    },
    "prereqs" : {
@@ -67,7 +70,7 @@
    "provides" : {
       "OAuth::Lite2" : {
          "file" : "lib/OAuth/Lite2.pm",
-         "version" : "0.05"
+         "version" : "0.06"
       },
       "OAuth::Lite2::Agent" : {
          "file" : "lib/OAuth/Lite2/Agent.pm"
@@ -95,6 +98,12 @@
       },
       "OAuth::Lite2::Client::Error::InvalidResponse" : {
          "file" : "lib/OAuth/Lite2/Client/Error.pm"
+      },
+      "OAuth::Lite2::Client::ServerState" : {
+         "file" : "lib/OAuth/Lite2/Client/ServerState.pm"
+      },
+      "OAuth::Lite2::Client::StateResponseParser" : {
+         "file" : "lib/OAuth/Lite2/Client/StateResponseParser.pm"
       },
       "OAuth::Lite2::Client::Token" : {
          "file" : "lib/OAuth/Lite2/Client/Token.pm"
@@ -131,6 +140,9 @@
       },
       "OAuth::Lite2::Model::AuthInfo" : {
          "file" : "lib/OAuth/Lite2/Model/AuthInfo.pm"
+      },
+      "OAuth::Lite2::Model::ServerState" : {
+         "file" : "lib/OAuth/Lite2/Model/ServerState.pm"
       },
       "OAuth::Lite2::ParamMethod" : {
          "file" : "lib/OAuth/Lite2/ParamMethod.pm"
@@ -183,6 +195,9 @@
       "OAuth::Lite2::Server::Error::InvalidScope" : {
          "file" : "lib/OAuth/Lite2/Server/Error.pm"
       },
+      "OAuth::Lite2::Server::Error::InvalidServerState" : {
+         "file" : "lib/OAuth/Lite2/Server/Error.pm"
+      },
       "OAuth::Lite2::Server::Error::InvalidToken" : {
          "file" : "lib/OAuth/Lite2/Server/Error.pm"
       },
@@ -207,11 +222,17 @@
       "OAuth::Lite2::Server::GrantHandler::ClientCredentials" : {
          "file" : "lib/OAuth/Lite2/Server/GrantHandler/ClientCredentials.pm"
       },
+      "OAuth::Lite2::Server::GrantHandler::GroupingRefreshToken" : {
+         "file" : "lib/OAuth/Lite2/Server/GrantHandler/GroupingRefreshToken.pm"
+      },
       "OAuth::Lite2::Server::GrantHandler::Password" : {
          "file" : "lib/OAuth/Lite2/Server/GrantHandler/Password.pm"
       },
       "OAuth::Lite2::Server::GrantHandler::RefreshToken" : {
          "file" : "lib/OAuth/Lite2/Server/GrantHandler/RefreshToken.pm"
+      },
+      "OAuth::Lite2::Server::GrantHandler::ServerState" : {
+         "file" : "lib/OAuth/Lite2/Server/GrantHandler/ServerState.pm"
       },
       "OAuth::Lite2::Server::GrantHandlers" : {
          "file" : "lib/OAuth/Lite2/Server/GrantHandlers.pm"
@@ -245,15 +266,16 @@
       },
       "homepage" : "https://github.com/ritou/p5-oauth-lite2",
       "repository" : {
-         "url" : "https://github.com/ritou/p5-oauth-lite2.git",
+         "url" : "git://github.com/ritou/p5-oauth-lite2.git",
          "web" : "https://github.com/ritou/p5-oauth-lite2"
       }
    },
-   "version" : "0.05",
+   "version" : "0.06",
    "x_contributors" : [
       "Kato Kazuyoshi <kato.kazuyoshi@gmail.com>",
       "HIROSE Masaaki <hirose31@gmail.com>",
       "Dann <techmemo@gmail.com>",
-      "lyokato <lyo.kato@gmail.com>"
+      "lyokato <lyo.kato@gmail.com>",
+      "Matthew Franglen <matthew.franglen@semantico.net>"
    ]
 }

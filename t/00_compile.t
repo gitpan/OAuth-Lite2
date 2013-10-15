@@ -38,10 +38,13 @@ BEGIN {
     use_ok('OAuth::Lite2::Client::TokenResponseParser');
     use_ok('OAuth::Lite2::Client::WebServer');
     use_ok('OAuth::Lite2::Client::UsernameAndPassword');
+    use_ok('OAuth::Lite2::Client::ServerState');
+    use_ok('OAuth::Lite2::Client::StateResponseParser');
 
     # model
     use_ok('OAuth::Lite2::Model::AccessToken');
     use_ok('OAuth::Lite2::Model::AuthInfo');
+    use_ok('OAuth::Lite2::Model::ServerState');
 
     # server
     use_ok('OAuth::Lite2::Server::Error');
@@ -52,8 +55,10 @@ BEGIN {
     use_ok('OAuth::Lite2::Server::GrantHandlers');
     use_ok('OAuth::Lite2::Server::GrantHandler::AuthorizationCode');
     use_ok('OAuth::Lite2::Server::GrantHandler::ClientCredentials');
+    use_ok('OAuth::Lite2::Server::GrantHandler::GroupingRefreshToken');
     use_ok('OAuth::Lite2::Server::GrantHandler::Password');
     use_ok('OAuth::Lite2::Server::GrantHandler::RefreshToken');
+    use_ok('OAuth::Lite2::Server::GrantHandler::ServerState');
 
     use_ok('OAuth::Lite2::Server::Endpoint::Token');
 

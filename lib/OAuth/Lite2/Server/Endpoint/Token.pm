@@ -101,9 +101,14 @@ sub handle_request {
         )unless($client_id);
 
         my $client_secret = ($header_credentials->{client_secret}) ? $header_credentials->{client_secret} : $request->param("client_secret");
-        OAuth::Lite2::Server::Error::InvalidRequest->throw(
-            description => q{'client_secret' not found},
-        )unless($client_secret);
+
+        # The grant type which are defined in spec require client authentication, 
+        # but additional grant type may not.
+        if ( $handler->is_required_client_authentication ) {
+            OAuth::Lite2::Server::Error::InvalidRequest->throw(
+                description => q{'client_secret' not found},
+            )unless($client_secret);
+        }
 
         $data_handler->validate_client($client_id, $client_secret, $type)
             or OAuth::Lite2::Server::Error::InvalidClient->throw;
@@ -165,11 +170,10 @@ token_endpoint.psgi
 
 =head1 DESCRIPTION
 
-The object of this class behaves as PSGI application (subroutine reference).
-This is for OAuth 2.0 token-endpoint.
+The instance of this class behaves as a PSGI application (subroutine reference).
+This is for the OAuth 2.0 token-endpoint.
 
-At first you have to make your custom class inheriting L<OAuth::Lite2::Server::DataHandler>,
-and setup PSGI file with it.
+The first thing you need to do is make your custom class, which inherits L<OAuth::Lite2::Server::DataHandler>, and then setup the PSGI file referencing it.
 
 =head1 METHODS
 
@@ -179,43 +183,65 @@ and setup PSGI file with it.
 
 =item data_handler
 
-name of your custom class that inherits L<OAuth::Lite2::Server::DataHandler>
-and implements interface.
+The name of your custom class that inherits the L<OAuth::Lite2::Server::DataHandler> package.
 
 =item error_uri
 
-Optional. URI that represents error description page.
-This would be included in error responses.
+Optional. This URI indicates the page that should be presented on an error. This will be included in error responses.
 
 =back
 
 =head2 support_grant_type( $type )
 
-You can set 'authorization_code', 'password', 'client_credentials' or 'refresh_token'
+Indicates support for a specific grant type. This does not remove previously supported grant types. The available values are:
+
+=over 4
+
+=item authorization_code
+
+=item password
+
+=item client_credentials
+
+=item refresh_token
+
+=back
 
 =head2 support_grant_types( @types )
 
-You can set 'authorization_code', 'password', 'client_credentials' or 'refresh_token'
+Allows specification of multiple grant types at once. This is equivalent to calling support_grant_type once for each type in the list. The available values are:
+
+=over 4
+
+=item authorization_code
+
+=item password
+
+=item client_credentials
+
+=item refresh_token
+
+=back
 
 =head2 data_handler
 
-return your custom datahandler class
+This returns the class that inherits the L<OAuth::Lite2::Server::DataHandler> package. This is defined by the data_handler parameter of the constructor.
 
 =head2 psgi_app
 
-return psgi application
+This returns a PSGI application.
 
 =head2 compile_psgi_app
 
-compile psgi application
+This will compile the PSGI application.
 
 =head2 handle_request( $req )
 
-parse access token request and call grant handler's method
+This will parse the access token request and call the data handler's method.
 
 =head1 TEST
 
-You can test with L<OAuth::Lite2::Agent::PSGIMock> and some of client classes.
+You can test with L<OAuth::Lite2::Agent::PSGIMock> and some of the client classes.
 
     my $app = OAuth::Lite2::Server::Endpoint::Token->new(
         data_handler => 'MyDataHandlerClass',
@@ -235,6 +261,8 @@ You can test with L<OAuth::Lite2::Agent::PSGIMock> and some of client classes.
     is($token->access_token, q{access_token_value});
 
 =head1 AUTHOR
+
+Ryo Ito, E<lt>ritou.06@gmail.comE<gt>
 
 Lyo Kato, E<lt>lyo.kato@gmail.comE<gt>
 

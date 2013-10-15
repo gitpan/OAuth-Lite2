@@ -10,12 +10,12 @@ configure_requires:
   CPAN::Meta::Prereqs: 0
   Module::Build: 0.38
 dynamic_config: 0
-generated_by: 'Minilla/v0.5.6, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Minilla/v0.8.0, CPAN::Meta::Converter version 2.132830'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
-name: oauth-lite2
+name: OAuth-Lite2
 no_index:
   directory:
     - t
@@ -25,178 +25,135 @@ no_index:
     - eg
     - examples
     - author
+    - builder
 provides:
   OAuth::Lite2:
     file: lib/OAuth/Lite2.pm
-    version: 0.05
+    version: 0.06
   OAuth::Lite2::Agent:
     file: lib/OAuth/Lite2/Agent.pm
-    version: 0
   OAuth::Lite2::Agent::Dump:
     file: lib/OAuth/Lite2/Agent/Dump.pm
-    version: 0
   OAuth::Lite2::Agent::PSGIMock:
     file: lib/OAuth/Lite2/Agent/PSGIMock.pm
-    version: 0
   OAuth::Lite2::Agent::Strict:
     file: lib/OAuth/Lite2/Agent/Strict.pm
-    version: 0
   OAuth::Lite2::Client::ClientCredentials:
     file: lib/OAuth/Lite2/Client/ClientCredentials.pm
-    version: 0
   OAuth::Lite2::Client::Error:
     file: lib/OAuth/Lite2/Client/Error.pm
-    version: 0
   OAuth::Lite2::Client::Error::InsecureRequest:
     file: lib/OAuth/Lite2/Client/Error.pm
-    version: 0
   OAuth::Lite2::Client::Error::InsecureResponse:
     file: lib/OAuth/Lite2/Client/Error.pm
-    version: 0
   OAuth::Lite2::Client::Error::InvalidResponse:
     file: lib/OAuth/Lite2/Client/Error.pm
-    version: 0
+  OAuth::Lite2::Client::ServerState:
+    file: lib/OAuth/Lite2/Client/ServerState.pm
+  OAuth::Lite2::Client::StateResponseParser:
+    file: lib/OAuth/Lite2/Client/StateResponseParser.pm
   OAuth::Lite2::Client::Token:
     file: lib/OAuth/Lite2/Client/Token.pm
-    version: 0
   OAuth::Lite2::Client::TokenResponseParser:
     file: lib/OAuth/Lite2/Client/TokenResponseParser.pm
-    version: 0
   OAuth::Lite2::Client::UsernameAndPassword:
     file: lib/OAuth/Lite2/Client/UsernameAndPassword.pm
-    version: 0
   OAuth::Lite2::Client::WebServer:
     file: lib/OAuth/Lite2/Client/WebServer.pm
-    version: 0
   OAuth::Lite2::Formatter:
     file: lib/OAuth/Lite2/Formatter.pm
-    version: 0
   OAuth::Lite2::Formatter::FormURLEncoded:
     file: lib/OAuth/Lite2/Formatter/FormURLEncoded.pm
-    version: 0
   OAuth::Lite2::Formatter::JSON:
     file: lib/OAuth/Lite2/Formatter/JSON.pm
-    version: 0
   OAuth::Lite2::Formatter::Text:
     file: lib/OAuth/Lite2/Formatter/Text.pm
-    version: 0
   OAuth::Lite2::Formatter::XML:
     file: lib/OAuth/Lite2/Formatter/XML.pm
-    version: 0
   OAuth::Lite2::Formatters:
     file: lib/OAuth/Lite2/Formatters.pm
-    version: 0
   OAuth::Lite2::Model::AccessToken:
     file: lib/OAuth/Lite2/Model/AccessToken.pm
-    version: 0
   OAuth::Lite2::Model::AuthInfo:
     file: lib/OAuth/Lite2/Model/AuthInfo.pm
-    version: 0
+  OAuth::Lite2::Model::ServerState:
+    file: lib/OAuth/Lite2/Model/ServerState.pm
   OAuth::Lite2::ParamMethod:
     file: lib/OAuth/Lite2/ParamMethod.pm
-    version: 0
   OAuth::Lite2::ParamMethod::AuthHeader:
     file: lib/OAuth/Lite2/ParamMethod/AuthHeader.pm
-    version: 0
   OAuth::Lite2::ParamMethod::FormEncodedBody:
     file: lib/OAuth/Lite2/ParamMethod/FormEncodedBody.pm
-    version: 0
   OAuth::Lite2::ParamMethod::URIQueryParameter:
     file: lib/OAuth/Lite2/ParamMethod/URIQueryParameter.pm
-    version: 0
   OAuth::Lite2::ParamMethods:
     file: lib/OAuth/Lite2/ParamMethods.pm
-    version: 0
   OAuth::Lite2::Server::Context:
     file: lib/OAuth/Lite2/Server/Context.pm
-    version: 0
   OAuth::Lite2::Server::DataHandler:
     file: lib/OAuth/Lite2/Server/DataHandler.pm
-    version: 0
   OAuth::Lite2::Server::Endpoint::Token:
     file: lib/OAuth/Lite2/Server/Endpoint/Token.pm
-    version: 0
   OAuth::Lite2::Server::Error:
     file: lib/OAuth/Lite2/Server/Error.pm
-    version: 0
   OAuth::Lite2::Server::Error::AccessDenied:
     file: lib/OAuth/Lite2/Server/Error.pm
-    version: 0
   OAuth::Lite2::Server::Error::ExpiredToken:
     file: lib/OAuth/Lite2/Server/Error.pm
-    version: 0
   OAuth::Lite2::Server::Error::ExpiredTokenLegacy:
     file: lib/OAuth/Lite2/Server/Error.pm
-    version: 0
   OAuth::Lite2::Server::Error::InsufficientScope:
     file: lib/OAuth/Lite2/Server/Error.pm
-    version: 0
   OAuth::Lite2::Server::Error::InvalidClient:
     file: lib/OAuth/Lite2/Server/Error.pm
-    version: 0
   OAuth::Lite2::Server::Error::InvalidGrant:
     file: lib/OAuth/Lite2/Server/Error.pm
-    version: 0
   OAuth::Lite2::Server::Error::InvalidRequest:
     file: lib/OAuth/Lite2/Server/Error.pm
-    version: 0
   OAuth::Lite2::Server::Error::InvalidScope:
     file: lib/OAuth/Lite2/Server/Error.pm
-    version: 0
+  OAuth::Lite2::Server::Error::InvalidServerState:
+    file: lib/OAuth/Lite2/Server/Error.pm
   OAuth::Lite2::Server::Error::InvalidToken:
     file: lib/OAuth/Lite2/Server/Error.pm
-    version: 0
   OAuth::Lite2::Server::Error::RedirectURIMismatch:
     file: lib/OAuth/Lite2/Server/Error.pm
-    version: 0
   OAuth::Lite2::Server::Error::UnauthorizedClient:
     file: lib/OAuth/Lite2/Server/Error.pm
-    version: 0
   OAuth::Lite2::Server::Error::UnsupportedGrantType:
     file: lib/OAuth/Lite2/Server/Error.pm
-    version: 0
   OAuth::Lite2::Server::Error::UnsupportedResourceType:
     file: lib/OAuth/Lite2/Server/Error.pm
-    version: 0
   OAuth::Lite2::Server::GrantHandler:
     file: lib/OAuth/Lite2/Server/GrantHandler.pm
-    version: 0
   OAuth::Lite2::Server::GrantHandler::AuthorizationCode:
     file: lib/OAuth/Lite2/Server/GrantHandler/AuthorizationCode.pm
-    version: 0
   OAuth::Lite2::Server::GrantHandler::ClientCredentials:
     file: lib/OAuth/Lite2/Server/GrantHandler/ClientCredentials.pm
-    version: 0
+  OAuth::Lite2::Server::GrantHandler::GroupingRefreshToken:
+    file: lib/OAuth/Lite2/Server/GrantHandler/GroupingRefreshToken.pm
   OAuth::Lite2::Server::GrantHandler::Password:
     file: lib/OAuth/Lite2/Server/GrantHandler/Password.pm
-    version: 0
   OAuth::Lite2::Server::GrantHandler::RefreshToken:
     file: lib/OAuth/Lite2/Server/GrantHandler/RefreshToken.pm
-    version: 0
+  OAuth::Lite2::Server::GrantHandler::ServerState:
+    file: lib/OAuth/Lite2/Server/GrantHandler/ServerState.pm
   OAuth::Lite2::Server::GrantHandlers:
     file: lib/OAuth/Lite2/Server/GrantHandlers.pm
-    version: 0
   OAuth::Lite2::Signer:
     file: lib/OAuth/Lite2/Signer.pm
-    version: 0
   OAuth::Lite2::Signer::Algorithm:
     file: lib/OAuth/Lite2/Signer/Algorithm.pm
-    version: 0
   OAuth::Lite2::Signer::Algorithm::HMAC_SHA1:
     file: lib/OAuth/Lite2/Signer/Algorithm/HMAC_SHA1.pm
-    version: 0
   OAuth::Lite2::Signer::Algorithm::HMAC_SHA256:
     file: lib/OAuth/Lite2/Signer/Algorithm/HMAC_SHA256.pm
-    version: 0
   OAuth::Lite2::Signer::Algorithms:
     file: lib/OAuth/Lite2/Signer/Algorithms.pm
-    version: 0
   OAuth::Lite2::Util:
     file: lib/OAuth/Lite2/Util.pm
-    version: 0
   Plack::Middleware::Auth::OAuth2::ProtectedResource:
     file: lib/Plack/Middleware/Auth/OAuth2/ProtectedResource.pm
-    version: 0
 requires:
   Class::Accessor::Fast: 0.34
   Class::ErrorHandler: 0.01
@@ -216,10 +173,11 @@ requires:
 resources:
   bugtracker: https://github.com/ritou/p5-oauth-lite2/issues
   homepage: https://github.com/ritou/p5-oauth-lite2
-  repository: https://github.com/ritou/p5-oauth-lite2.git
-version: 0.05
+  repository: git://github.com/ritou/p5-oauth-lite2.git
+version: 0.06
 x_contributors:
   - 'Kato Kazuyoshi <kato.kazuyoshi@gmail.com>'
   - 'HIROSE Masaaki <hirose31@gmail.com>'
   - 'Dann <techmemo@gmail.com>'
   - 'lyokato <lyo.kato@gmail.com>'
+  - 'Matthew Franglen <matthew.franglen@semantico.net>'
