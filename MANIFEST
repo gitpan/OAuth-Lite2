@@ -12,6 +12,7 @@ lib/OAuth/Lite2/Agent/PSGIMock.pm
 lib/OAuth/Lite2/Agent/Strict.pm
 lib/OAuth/Lite2/Client/ClientCredentials.pm
 lib/OAuth/Lite2/Client/Error.pm
+lib/OAuth/Lite2/Client/ExternalService.pm
 lib/OAuth/Lite2/Client/ServerState.pm
 lib/OAuth/Lite2/Client/StateResponseParser.pm
 lib/OAuth/Lite2/Client/Token.pm
@@ -39,6 +40,7 @@ lib/OAuth/Lite2/Server/Error.pm
 lib/OAuth/Lite2/Server/GrantHandler.pm
 lib/OAuth/Lite2/Server/GrantHandler/AuthorizationCode.pm
 lib/OAuth/Lite2/Server/GrantHandler/ClientCredentials.pm
+lib/OAuth/Lite2/Server/GrantHandler/ExternalService.pm
 lib/OAuth/Lite2/Server/GrantHandler/GroupingRefreshToken.pm
 lib/OAuth/Lite2/Server/GrantHandler/Password.pm
 lib/OAuth/Lite2/Server/GrantHandler/RefreshToken.pm
@@ -60,12 +62,14 @@ t/010_core/util.t
 t/030_server/protected_resource/middleware.t
 t/030_server/token_endpoint/authorization_code.t
 t/030_server/token_endpoint/client_credentials.t
+t/030_server/token_endpoint/external_service.t
 t/030_server/token_endpoint/grouping_refresh_token.t
 t/030_server/token_endpoint/password.t
 t/030_server/token_endpoint/refresh.t
 t/030_server/token_endpoint/server_state.t
 t/040_unit/client_credentials.t
 t/040_unit/common.t
+t/040_unit/external_service.t
 t/040_unit/grouping_refresh_token.t
 t/040_unit/model/access_token.t
 t/040_unit/model/auth_info.t
