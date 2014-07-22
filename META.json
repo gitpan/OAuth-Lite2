@@ -71,7 +71,7 @@
    "provides" : {
       "OAuth::Lite2" : {
          "file" : "lib/OAuth/Lite2.pm",
-         "version" : "0.08"
+         "version" : "0.09"
       },
       "OAuth::Lite2::Agent" : {
          "file" : "lib/OAuth/Lite2/Agent.pm"
@@ -277,7 +277,7 @@
          "web" : "https://github.com/ritou/p5-oauth-lite2"
       }
    },
-   "version" : "0.08",
+   "version" : "0.09",
    "x_contributors" : [
       "Kato Kazuyoshi <kato.kazuyoshi@gmail.com>",
       "HIROSE Masaaki <hirose31@gmail.com>",
