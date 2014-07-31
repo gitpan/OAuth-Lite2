@@ -4,7 +4,7 @@
       "Ryo Ito, <ritou.06@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v1.1.0",
+   "generated_by" : "Minilla/v2.1.1",
    "license" : [
       "perl_5"
    ],
@@ -34,8 +34,6 @@
       },
       "configure" : {
          "requires" : {
-            "CPAN::Meta" : "0",
-            "CPAN::Meta::Prereqs" : "0",
             "Module::Build" : "0.38"
          }
       },
@@ -71,7 +69,7 @@
    "provides" : {
       "OAuth::Lite2" : {
          "file" : "lib/OAuth/Lite2.pm",
-         "version" : "0.09"
+         "version" : "0.10"
       },
       "OAuth::Lite2::Agent" : {
          "file" : "lib/OAuth/Lite2/Agent.pm"
@@ -208,6 +206,12 @@
       "OAuth::Lite2::Server::Error::RedirectURIMismatch" : {
          "file" : "lib/OAuth/Lite2/Server/Error.pm"
       },
+      "OAuth::Lite2::Server::Error::ServerError" : {
+         "file" : "lib/OAuth/Lite2/Server/Error.pm"
+      },
+      "OAuth::Lite2::Server::Error::TemporarilyUnavailable" : {
+         "file" : "lib/OAuth/Lite2/Server/Error.pm"
+      },
       "OAuth::Lite2::Server::Error::UnauthorizedClient" : {
          "file" : "lib/OAuth/Lite2/Server/Error.pm"
       },
@@ -215,6 +219,9 @@
          "file" : "lib/OAuth/Lite2/Server/Error.pm"
       },
       "OAuth::Lite2::Server::Error::UnsupportedResourceType" : {
+         "file" : "lib/OAuth/Lite2/Server/Error.pm"
+      },
+      "OAuth::Lite2::Server::Error::UnsupportedResponseType" : {
          "file" : "lib/OAuth/Lite2/Server/Error.pm"
       },
       "OAuth::Lite2::Server::GrantHandler" : {
@@ -277,7 +284,7 @@
          "web" : "https://github.com/ritou/p5-oauth-lite2"
       }
    },
-   "version" : "0.09",
+   "version" : "0.10",
    "x_contributors" : [
       "Kato Kazuyoshi <kato.kazuyoshi@gmail.com>",
       "HIROSE Masaaki <hirose31@gmail.com>",

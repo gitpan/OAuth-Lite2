@@ -6,11 +6,9 @@ build_requires:
   ExtUtils::MakeMaker: '6.36'
   Test::More: '0'
 configure_requires:
-  CPAN::Meta: '0'
-  CPAN::Meta::Prereqs: '0'
   Module::Build: '0.38'
 dynamic_config: 0
-generated_by: 'Minilla/v1.1.0, CPAN::Meta::Converter version 2.141170'
+generated_by: 'Minilla/v2.1.1, CPAN::Meta::Converter version 2.141170'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -29,7 +27,7 @@ no_index:
 provides:
   OAuth::Lite2:
     file: lib/OAuth/Lite2.pm
-    version: '0.09'
+    version: '0.10'
   OAuth::Lite2::Agent:
     file: lib/OAuth/Lite2/Agent.pm
   OAuth::Lite2::Agent::Dump:
@@ -120,11 +118,17 @@ provides:
     file: lib/OAuth/Lite2/Server/Error.pm
   OAuth::Lite2::Server::Error::RedirectURIMismatch:
     file: lib/OAuth/Lite2/Server/Error.pm
+  OAuth::Lite2::Server::Error::ServerError:
+    file: lib/OAuth/Lite2/Server/Error.pm
+  OAuth::Lite2::Server::Error::TemporarilyUnavailable:
+    file: lib/OAuth/Lite2/Server/Error.pm
   OAuth::Lite2::Server::Error::UnauthorizedClient:
     file: lib/OAuth/Lite2/Server/Error.pm
   OAuth::Lite2::Server::Error::UnsupportedGrantType:
     file: lib/OAuth/Lite2/Server/Error.pm
   OAuth::Lite2::Server::Error::UnsupportedResourceType:
+    file: lib/OAuth/Lite2/Server/Error.pm
+  OAuth::Lite2::Server::Error::UnsupportedResponseType:
     file: lib/OAuth/Lite2/Server/Error.pm
   OAuth::Lite2::Server::GrantHandler:
     file: lib/OAuth/Lite2/Server/GrantHandler.pm
@@ -178,7 +182,7 @@ resources:
   bugtracker: https://github.com/ritou/p5-oauth-lite2/issues
   homepage: https://github.com/ritou/p5-oauth-lite2
   repository: git://github.com/ritou/p5-oauth-lite2.git
-version: '0.09'
+version: '0.10'
 x_contributors:
   - 'Kato Kazuyoshi <kato.kazuyoshi@gmail.com>'
   - 'HIROSE Masaaki <hirose31@gmail.com>'

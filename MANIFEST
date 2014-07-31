@@ -74,6 +74,7 @@ t/040_unit/grouping_refresh_token.t
 t/040_unit/model/access_token.t
 t/040_unit/model/auth_info.t
 t/040_unit/model/server_state.t
+t/040_unit/server/error.t
 t/040_unit/server/grant_handler.t
 t/040_unit/username.t
 t/040_unit/web_server.t
